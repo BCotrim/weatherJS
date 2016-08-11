@@ -4,7 +4,8 @@
   "description": "JS Application to query Yahoo Weather APIs",
   "scripts": {
     "start": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/BCotrim/weatherJS#readme",
   "dependencies": {
+    "eslint": "^3.2.2",
     "express": "^4.14.0"
   }
 }

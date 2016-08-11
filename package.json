@@ -1,0 +1,26 @@
+{
+  "name": "weather-js",
+  "version": "1.0.0",
+  "description": "JS Application to query Yahoo Weather APIs",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BCotrim/weatherJS.git"
+  },
+  "keywords": [
+    "weather",
+    "yahooapis"
+  ],
+  "author": "Bernardo Cotrim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BCotrim/weatherJS/issues"
+  },
+  "homepage": "https://github.com/BCotrim/weatherJS#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

@@ -1,38 +1,36 @@
-var DEBOUNCE_TIMER = 1000;
+"use strict";
 
-function valueChanged() {
-  debounce(query, DEBOUNCE_TIMER);
-}
+var WeatherJS = new function() {
+  var DEBOUNCE_TIMER = 500;
+  var NOT_FOUND_ERROR = 'Could not find that location.';
 
-var debounce = function() {
-  var timer = 0;
-  return function(callback, ms) {
-    clearTimeout(timer);
-    timer = setTimeout(callback, ms);
+  function valueChanged() {
+    debounce(query, DEBOUNCE_TIMER);
   }
-}();
 
-function setViewDefaults() {
-  document.getElementById('description').textContent = "Please input location";
-}
-
-function setViewResults(results) {
-  document.getElementById('description').textContent = results.channel.description;
-}
-
-function responseHandler(response) {
-  var obj = JSON.parse(response);
-  console.log(obj);
-
-  if (!obj || !obj.query || !obj.query.results) {
-    setViewDefaults();
-  } else {
-    setViewResults(obj.query.results);
+  function responseHandler(error, response) {
+    if (error) {
+      WeatherView.setViewError(error);
+    } else {
+      var obj = JSON.parse(response);
+      if (!obj || !obj.query || !obj.query.results || !obj.query.results.channel) {
+        WeatherView.setViewError(NOT_FOUND_ERROR);
+      } else {
+        WeatherView.setViewResults(obj.query.results.channel);
+      }
+    }
   }
-}
 
-function query() {
-  var value = document.getElementById('location').value;
-  var yahooRequest = new YahooAPIRequest(value);
-  httpGetAsync(yahooRequest.url, responseHandler);
-}
+  function query() {
+    var value = document.getElementById('location').value;
+    if (value) {
+      WeatherView.setViewLoading();
+      var yahooRequest = YahooApi.getRequestUrl(value);
+      HttpRequest.getAsync(yahooRequest, responseHandler);
+    } else {
+      WeatherView.setViewDefaults();
+    }
+  }
+
+  this.valueChanged = valueChanged;
+};

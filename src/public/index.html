@@ -3,14 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather JS</title>
+
+    <link rel="stylesheet" type="text/css" href="style/weather.css">
+    <link rel="stylesheet" type="text/css" href="style/weather-icons.min.css">
 </head>
 <body>
-    <input id="location" type="text" onkeydown="valueChanged()"/>
 
-    <h1 id="description">Please input location</h1>
+    <div class="content">
+        <div id="content-header">
+            <input id="location" name="location" type="text"
+                   placeholder="Insert city name here."
+                   onkeydown="WeatherJS.valueChanged()"/>
+        </div>
 
+        <div id="content-body">
+            <div id="loading" class="hidden">
+                <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                <span class="sr-only">Loading...</span>
+            </div>
+
+            <div id="results" class="hidden">
+                <h2 id="details"></h2>
+                <span id="temperature" class="details"></span>
+                <i id="weather" class="details wi"></i>
+                <h2>Forecast</h2>
+                <table id="forecast"></table>
+            </div>
+
+            <p id="errors" class="hidden">This is an error.</p>
+        </div>
+
+        <div class="content-footer">
+            <a href="https://www.yahoo.com/?ilc=401" target="_blank"> <img src="https://poweredby.yahoo.com/purple.png" width="134" height="29"/> </a>
+        </div>
+    </div>
+
+    <script src="https://use.fontawesome.com/2175e39f36.js"></script>
     <script type="text/javascript" src="sources/yahooapis.js"></script>
-    <script type="text/javascript" src="sources/http-request.js"></script>
+    <script type="text/javascript" src="sources/utils.js"></script>
+    <script type="text/javascript" src="sources/view.js"></script>
     <script type="text/javascript" src="sources/weather.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var WeatherJS = new function() {
   var DEBOUNCE_TIMER = 500;

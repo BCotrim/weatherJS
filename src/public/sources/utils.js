@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var debounce = function () {
   var timer = 0;

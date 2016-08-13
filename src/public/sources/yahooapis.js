@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var YahooApi = new function() {
   var QUERY = 'select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\") and u="c"';
@@ -67,6 +67,6 @@ var YahooApi = new function() {
   };
 
   this.getRequestUrl = function(text) {
-    return URL_PREFIX + QUERY.replace("%s", text);
+    return URL_PREFIX + QUERY.replace('%s', text);
   };
 };

@@ -4,8 +4,8 @@
   "description": "JS Application to query Yahoo Weather APIs",
   "scripts": {
     "start": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/**/*.js"
+    "test": "karma start",
+    "lint": "eslint src/**/*.js test/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,12 @@
   "dependencies": {
     "eslint": "^3.2.2",
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "karma": "^1.2.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-spec-reporter": "0.0.26"
   }
 }

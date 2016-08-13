@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var WeatherView = new function() {
   var NUMBER_OF_FORECAST_DAYS = 5;
